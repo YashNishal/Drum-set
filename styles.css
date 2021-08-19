@@ -12,7 +12,6 @@ h1 {
 }
 
 h2 {
-  margin-top: 100px;
   font-size: 1.5rem;
   font-family: "Arvo", cursive;
   color :#DBEDF3;
@@ -20,6 +19,23 @@ h2 {
 footer {
   color: #DA0463;
   font-family: sans-serif;
+}
+
+.drum-image {
+  margin: 0% 1%;
+}
+
+footer a {
+  color: #DBEDF3;
+  font-family: "Arvo", sans-serif;
+  text-decoration: none;
+  padding: 5px 6px;
+  border: 2px solid #DA0463;
+  border-radius: 5px;
+}
+
+footer a:hover {
+  background-color: #DA0463;
 }
 
 .w {
@@ -51,7 +67,7 @@ footer {
 }
 
 .set {
-  margin: 10% auto;
+  margin: 5% auto;
 }
 
 .game-over {
@@ -64,8 +80,21 @@ footer {
   opacity: 0.5;
 }
 
-.red {
-  color: red;
+.random-beat {
+  border: 7px solid #404B69;
+  font-size: 1.3rem;
+  font-family: 'Arvo', cursive;
+  font-weight: 500;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #212122;
+  margin-bottom: 3rem;
+  padding: 3px 5px;
+}
+
+.pressed-beat-generator {
+  box-shadow: 0 3px 4px 0 #DBEDF3;
 }
 
 .drum {
@@ -85,3 +114,5 @@ footer {
   margin: 10px;
   background-color: white;
 }
+
+

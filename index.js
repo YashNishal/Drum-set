@@ -1,5 +1,47 @@
 var query = document.querySelectorAll(".drum");
 
+document.querySelector(".random-beat").addEventListener("click", function () {
+  this.classList.add("pressed-beat-generator");
+  let numberOfRandomBeat = 30;
+  let randomPlayer = setInterval(() => {
+    const randomNoteArrayIndex = Math.floor( Math.random() * (query.length + 1));
+    const selectedNote = document.querySelectorAll("button")[randomNoteArrayIndex];
+
+    playSound(selectedNote.innerHTML);
+    buttonAnimation(selectedNote.innerHTML);
+
+    numberOfRandomBeat--;
+    
+    if (numberOfRandomBeat === 0) {
+      clearInterval(randomPlayer);
+      this.classList.remove("pressed-beat-generator");
+    }
+  }, 120);
+});
+
+for (var i = 0; i < query.length; i++) {
+  query[i].addEventListener("click", function () {
+    var buttonInnerHTML = this.innerHTML;
+    playSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
+  });
+}
+
+document.addEventListener("keydown", function (event) {
+  playSound(event.key.toLowerCase());
+  buttonAnimation(event.key.toLowerCase());
+});
+
+function buttonAnimation(currentKey) {
+  var activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.add("pressed");
+
+  setTimeout(function () {
+    activeButton.classList.remove("pressed");
+  }, 100);
+}
+
+
 function playSound(key) {
   switch (key) {
     case "w":
@@ -33,26 +75,4 @@ function playSound(key) {
     default:
       console.log(buttonInnerHTML);
   }
-}
-
-for (var i = 0; i < query.length; i++) {
-  query[i].addEventListener("click", function () {
-    var buttonInnerHTML = this.innerHTML;
-    playSound(buttonInnerHTML);
-    buttonAnimation(buttonInnerHTML);
-  });
-}
-
-document.addEventListener("keydown", function (event) {
-  playSound(event.key.toLowerCase());
-  buttonAnimation(event.key.toLowerCase());
-});
-
-function buttonAnimation(currentKey) {
-  var activeButton = document.querySelector("." + currentKey);
-  activeButton.classList.add("pressed");
-
-  setTimeout(function () {
-    activeButton.classList.remove("pressed");
-  }, 100);
 }
